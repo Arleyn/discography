@@ -1,0 +1,20 @@
+<div class="container">
+	<a onclick="location.href='<%= lp_new_path(@artist_id) %>'"><button type="button" class="btn btn-primary">New LP</button></a>	
+
+	<hr>
+
+	<% unless @lps.blank? %>
+		<% @lps.each do |lp| %>
+			<div class="panel panel-default">
+				<div class="panel-body">
+			    	<h3><%= lp.name %></h3>
+			    	<p><%= lp.description %></p>
+			    	<span class="btn-group pull-right">
+						<a class="btn btn-info btn-sm" onclick="location.href='<%= lp_edit_path(@artist_id, lp.id) %>'">Edit</a>
+				        <a class="btn btn-danger btn-sm" onclick="location.href='<%= lp_delete_path(@artist_id, lp.id) %>'">Delete</a>
+				    </span>
+			  	</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

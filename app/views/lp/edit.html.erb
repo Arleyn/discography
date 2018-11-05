@@ -1,0 +1,5 @@
+<div class="container">
+	<%= form_for @lp, url: lp_update_path(@artist_id, @lp.id, @lp) do |f| %>
+		<%= render 'lp/form', f: f %>
+	<% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+	<a onclick="location.href='<%= artist_new_path %>'"><button type="button" class="btn btn-primary">New Artist</button></a>	
+
+	<hr>
+
+	<% unless @artists.blank? %>
+		<% @artists.each do |artist| %>
+			<div class="panel panel-default">
+				<div class="panel-body">
+			    	<h3><%= artist.name %></h3>
+			    	<p><%= artist.description %></p>
+			    	<span class="btn-group pull-right">
+			    		<a class="btn btn-success btn-sm" onclick="location.href='<%= lp_dashboard_path(artist.id) %>'">LP</a>
+				        <a class="btn btn-info btn-sm" onclick="location.href='<%= artist_edit_path(artist.id) %>'">Edit</a>
+				        <a class="btn btn-danger btn-sm" onclick="location.href='<%= artist_delete_path(artist.id) %>'">Delete</a>
+				    </span>
+			  	</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

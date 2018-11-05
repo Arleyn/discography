@@ -1,0 +1,23 @@
+<div class="container">
+
+	<div class="col-sm-4">
+      <%= form_for :artist, url: lp_dashboard_filter_result_path do |f|
+        f.select :artist, options_for_select(Artist.all.map {|t| [t.name, t.id]}, @carrier_id), {include_blank: 'Select'}, {:onchange => "this.form.submit();", class: 'input-field float-right'}
+      end %>
+    </div>
+
+	<hr>
+
+	<% unless @lps.blank? %>
+		<% @lps.each do |lp| %>
+			<div class="panel panel-default">
+				<div class="panel-body">
+			    	<h3><%= lp.name %></h3>
+			    	<p><%= lp.description %></p>
+			  	</div>
+			</div>
+		<% end %>
+	<% end %>
+
+
+</div>
